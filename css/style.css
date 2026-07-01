@@ -170,7 +170,7 @@ h3 {
 .container {
   max-width: 69.375rem; /* 1110px */
   margin-inline: auto;
-  padding-inline: var(--spacing-300);
+  padding-inline: var(--spacing-400);
 }
 
 /* === Buttons === */
@@ -203,6 +203,13 @@ h3 {
   background-color: transparent;
   border-color: var(--color-slate-800);
   color: var(--color-slate-800);
+  padding-inline: var(--spacing-400); /* 32px, per Figma */
+  justify-content: center;
+  font-family: var(--font-sans);
+  font-size: 0.75rem; /* 12px, text-preset-7 */
+  line-height: 115%;
+  letter-spacing: 2px;
+  text-transform: uppercase;
 }
 
 .btn-outline:hover {
@@ -322,7 +329,7 @@ h3 {
 .site-footer {
   background-color: var(--color-slate-800);
   color: var(--color-neutral-0);
-  padding-block: var(--spacing-600);
+  padding-block: var(--spacing-700); /* 56px, per Figma */
   text-align: center;
 }
 
@@ -336,8 +343,16 @@ h3 {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: var(--spacing-300);
+  gap: var(--spacing-400); /* 32px, per Figma */
   margin-bottom: var(--spacing-500);
+}
+
+.footer-nav a {
+  font-family: var(--font-sans);
+  font-size: 0.75rem; /* 12px, text-preset-7 */
+  line-height: 115%;
+  letter-spacing: 2px;
+  text-transform: uppercase;
 }
 
 .footer-nav a:hover,
@@ -351,10 +366,20 @@ h3 {
   margin-bottom: var(--spacing-500);
 }
 
+@media (max-width: 47.99em) {
+  .footer-divider {
+    display: none;
+  }
+}
+
 .social-list {
   display: flex;
   justify-content: center;
   gap: var(--spacing-300);
+}
+
+.site-footer .social-list {
+  gap: var(--spacing-200); /* 16px, per Figma */
 }
 
 .social-list a {
@@ -557,18 +582,118 @@ h3 {
   margin-top: var(--spacing-400);
 }
 
+.hero-content .btn-primary {
+  width: 12.5rem; /* 200px */
+  height: 3rem; /* 48px */
+  padding: 0;
+  gap: 0;
+}
+
+.hero-content .btn-primary .btn-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem; /* 48px */
+  height: 100%;
+  background-color: rgb(0 0 0 / 10%);
+}
+
+.hero-content .btn-primary .text-preset-7 {
+  flex: 1;
+  text-align: center;
+}
+
+@media (max-width: 47.99em) {
+  .hero-content {
+    text-align: left;
+    padding-top: var(--spacing-300); /* 24px */
+  }
+
+  .hero-content h1 {
+    /* text-preset-2 metrics on mobile, per Figma */
+    font-size: 2.5rem; /* 40px */
+    line-height: 105%;
+    letter-spacing: -0.35px;
+  }
+
+  .hero picture {
+    max-width: 19.4375rem; /* 311px */
+    aspect-ratio: 311 / 271;
+    margin-inline: auto;
+    overflow: hidden;
+    background-color: var(--color-neutral-100);
+  }
+
+  .hero picture img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
 /* === About Me === */
 .about-me .container {
   padding-block: var(--spacing-700);
   text-align: center;
 }
 
+.about-divider {
+  border: none;
+  border-top: 1px solid var(--color-slate-800);
+  opacity: 0.15;
+  margin-block: var(--spacing-400);
+}
+
 .about-me p {
   margin-top: var(--spacing-300);
+  opacity: 0.8;
 }
 
 .about-me .btn {
   margin-top: var(--spacing-400);
+}
+
+@media (max-width: 47.99em) {
+  .about-me .container {
+    display: flex;
+    flex-direction: column;
+    gap: 2.8125rem; /* 45px */
+    text-align: left;
+    padding-top: var(--spacing-400); /* 32px, image → text gap */
+  }
+
+  .about-divider {
+    margin-block: 0;
+  }
+
+  .about-text {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-300); /* 24px */
+  }
+
+  .about-me p,
+  .about-me .btn {
+    margin-top: 0;
+  }
+
+  .about-me .btn {
+    align-self: flex-start;
+  }
+
+  .about-me picture {
+    max-width: 19.4375rem; /* 311px */
+    aspect-ratio: 311 / 346;
+    margin-inline: auto;
+    overflow: hidden;
+    background-color: var(--color-neutral-100);
+  }
+
+  .about-me picture img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
 }
 
 /* === CTA === */
@@ -578,7 +703,7 @@ h3 {
 }
 
 .cta .btn {
-  margin-top: var(--spacing-400);
+  margin-top: var(--spacing-500); /* 40px, per Figma */
 }
 
 @media (min-width: 64em) {
@@ -598,5 +723,9 @@ h3 {
     flex: 1;
     text-align: left;
     padding-block: 0;
+  }
+
+  .about-divider {
+    display: none;
   }
 }
