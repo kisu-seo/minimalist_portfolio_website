@@ -406,13 +406,12 @@ h3 {
   }
 }
 
-@media (min-width: 48em) and (max-width: 63.99em) {
+@media (min-width: 48em) {
   .site-footer {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: var(--spacing-300) var(--spacing-500); /* 24px 40px, per Figma */
   }
 
   .site-footer .container {
@@ -420,9 +419,6 @@ h3 {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    align-self: stretch;
-    max-width: none;
-    padding-inline: 0;
     text-align: left;
   }
 
@@ -435,6 +431,29 @@ h3 {
   .site-footer .logo,
   .footer-nav ul {
     margin-bottom: 0;
+  }
+}
+
+@media (min-width: 48em) and (max-width: 63.99em) {
+  .site-footer {
+    padding: var(--spacing-300) var(--spacing-500); /* 24px 40px, per Figma tablet */
+  }
+
+  .site-footer .container {
+    align-self: stretch;
+    max-width: none;
+    padding-inline: 0;
+  }
+}
+
+@media (min-width: 64em) {
+  .site-footer {
+    padding-block: var(--spacing-300); /* 24px, per Figma desktop */
+    padding-inline: 0;
+  }
+
+  .site-footer .container {
+    padding-inline: 0; /* .container's own max-width:1110 + auto margins now center it */
   }
 }
 
@@ -709,6 +728,46 @@ h3 {
   }
 }
 
+@media (min-width: 64em) {
+  .hero {
+    position: relative;
+  }
+
+  .hero picture {
+    max-width: 69.375rem; /* 1110px */
+    aspect-ratio: 1110 / 600;
+    margin-inline: auto;
+    overflow: hidden;
+  }
+
+  .hero picture img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .hero-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+    width: 27.8125rem; /* 445px */
+    max-width: 27.8125rem;
+    height: 22.3125rem; /* 357px */
+    margin-top: -22.3125rem; /* -357px, card overlaps bottom of image */
+    margin-left: max(0px, calc((100% - 69.375rem) / 2)); /* aligns with picture's centered left edge */
+    margin-right: 0;
+    padding: 0;
+    background-color: var(--color-neutral-50);
+    text-align: left;
+  }
+
+  .hero-text {
+    max-width: 24.375rem; /* 390px */
+    gap: var(--spacing-700); /* 56px, per Figma desktop */
+  }
+}
+
 /* === About Me === */
 .about-me .container {
   display: flex;
@@ -728,6 +787,12 @@ h3 {
   display: flex;
   flex-direction: column;
   gap: var(--spacing-300); /* 24px */
+}
+
+.about-text-body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-300); /* 24px, mobile/tablet */
 }
 
 .about-me p {
@@ -759,6 +824,11 @@ h3 {
 }
 
 @media (min-width: 48em) and (max-width: 63.99em) {
+  .about-me {
+    max-width: 43.0625rem; /* 689px, per Figma tablet */
+    margin-inline: var(--spacing-400) auto; /* 32px left inset */
+  }
+
   .about-me .container {
     gap: 3.1875rem; /* 51px, per Figma tablet */
   }
@@ -775,16 +845,17 @@ h3 {
 }
 
 .cta-divider {
-  display: none; /* tablet-only, per Figma */
+  display: none; /* mobile-only, per Figma */
 }
 
-@media (min-width: 48em) and (max-width: 63.99em) {
+@media (min-width: 48em) {
   .cta .container {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
     gap: var(--spacing-400); /* 32px */
+    padding-inline: 0; /* .container's own max-width + auto margins already center it */
     text-align: left;
   }
 
@@ -795,7 +866,6 @@ h3 {
   .cta-divider {
     display: block;
     flex-shrink: 0;
-    width: 7.0625rem; /* 113px */
     border: none;
     border-top: 1px solid var(--color-slate-800);
     opacity: 0.15;
@@ -804,6 +874,18 @@ h3 {
   .cta .btn {
     flex-shrink: 0;
     margin-top: 0;
+  }
+}
+
+@media (min-width: 48em) and (max-width: 63.99em) {
+  .cta-divider {
+    width: 7.0625rem; /* 113px, per Figma tablet */
+  }
+}
+
+@media (min-width: 64em) {
+  .cta-divider {
+    width: 33.375rem; /* 534px, per Figma desktop */
   }
 }
 
@@ -829,7 +911,24 @@ h3 {
 }
 
 @media (min-width: 64em) {
-  .about-divider {
-    display: none;
+  .about-me {
+    max-width: 63.4375rem; /* 1015px, per Figma desktop */
+    margin-left: max(2rem, calc((100% - 69.375rem) / 2)); /* aligns with standard 165px container offset */
+    margin-right: auto;
+    gap: 7.8125rem; /* 125px, per Figma desktop */
+  }
+
+  .about-me picture,
+  .about-me img {
+    flex: 540 0 0%; /* 540:350 ratio, per Figma desktop */
+  }
+
+  .about-me .container {
+    flex: 350 0 0%;
+    gap: var(--spacing-600); /* 48px, per Figma desktop */
+  }
+
+  .about-text-body {
+    gap: var(--spacing-375); /* 30px, per Figma desktop */
   }
 }
