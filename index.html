@@ -20,7 +20,7 @@
 
       <nav class="nav-desktop" aria-label="Primary">
         <ul>
-          <li><a href="index.html">Home</a></li>
+          <li><a href="index.html" aria-current="page">Home</a></li>
           <li><a href="portfolio.html">Portfolio</a></li>
           <li><a href="contact.html">Contact Me</a></li>
         </ul>
@@ -51,13 +51,15 @@
       </picture>
 
       <div class="container hero-content">
-        <h1 class="text-preset-1">Hey, I’m Alex Spencer and I love building beautiful websites</h1>
-        <a href="#about-me" class="btn btn-primary">
-          <span class="btn-icon" aria-hidden="true">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="14"><g fill="none" fill-rule="evenodd" stroke="#5FB4A2"><path d="M0 9l8 4 8-4"/><path opacity=".5" d="M0 5l8 4 8-4"/><path opacity=".25" d="M0 1l8 4 8-4"/></g></svg>
-          </span>
-          <span class="text-preset-7">About Me</span>
-        </a>
+        <div class="hero-text">
+          <h1 class="text-preset-1">Hey, I’m Alex Spencer and I love building beautiful websites</h1>
+          <a href="#about-me" class="btn btn-primary">
+            <span class="btn-icon" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="14"><g fill="none" fill-rule="evenodd" stroke="#5FB4A2"><path d="M0 9l8 4 8-4"/><path opacity=".5" d="M0 5l8 4 8-4"/><path opacity=".25" d="M0 1l8 4 8-4"/></g></svg>
+            </span>
+            <span class="text-preset-7">About Me</span>
+          </a>
+        </div>
       </div>
     </section>
 
@@ -92,6 +94,7 @@
     <section class="cta">
       <div class="container">
         <h2 class="text-preset-2">Interested in doing a project together?</h2>
+        <hr class="cta-divider">
         <a href="contact.html" class="btn btn-outline">Contact Me</a>
       </div>
     </section>
@@ -100,17 +103,19 @@
   <!-- === Footer === -->
   <footer class="site-footer">
     <div class="container">
-      <a href="index.html" class="logo" aria-label="Homepage">
-        <svg xmlns="http://www.w3.org/2000/svg" width="61" height="32" fill="currentColor"><path fill-rule="evenodd" d="M60.082 5.878L44.408 32 28.735 5.878h31.347zM15.673 0l15.674 26.122H0L15.673 0z"/></svg>
-      </a>
+      <div class="footer-brand">
+        <a href="index.html" class="logo" aria-label="Homepage">
+          <svg xmlns="http://www.w3.org/2000/svg" width="61" height="32" fill="currentColor"><path fill-rule="evenodd" d="M60.082 5.878L44.408 32 28.735 5.878h31.347zM15.673 0l15.674 26.122H0L15.673 0z"/></svg>
+        </a>
 
-      <nav class="footer-nav" aria-label="Footer">
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="portfolio.html">Portfolio</a></li>
-          <li><a href="contact.html">Contact Me</a></li>
-        </ul>
-      </nav>
+        <nav class="footer-nav" aria-label="Footer">
+          <ul>
+            <li><a href="index.html" aria-current="page">Home</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="contact.html">Contact Me</a></li>
+          </ul>
+        </nav>
+      </div>
 
       <hr class="footer-divider">
 

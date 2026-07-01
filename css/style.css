@@ -245,7 +245,7 @@ h3 {
 
 .nav-desktop ul {
   display: flex;
-  gap: var(--spacing-400);
+  gap: var(--spacing-500); /* 40px, per Figma */
 }
 
 .nav-desktop a {
@@ -255,6 +255,11 @@ h3 {
 .nav-desktop a:hover,
 .nav-desktop a:focus-visible {
   color: var(--color-slate-400);
+}
+
+.nav-desktop a[aria-current='page'],
+.mobile-nav a[aria-current='page'] {
+  color: var(--color-teal-400);
 }
 
 .menu-toggle {
@@ -314,7 +319,7 @@ h3 {
   color: var(--color-slate-400);
 }
 
-@media (min-width: 64em) {
+@media (min-width: 48em) {
   .nav-desktop {
     display: block;
   }
@@ -366,7 +371,7 @@ h3 {
   margin-bottom: var(--spacing-500);
 }
 
-@media (max-width: 47.99em) {
+@media (max-width: 63.99em) {
   .footer-divider {
     display: none;
   }
@@ -397,7 +402,39 @@ h3 {
   .footer-nav ul {
     flex-direction: row;
     justify-content: center;
-    gap: var(--spacing-400);
+    gap: var(--spacing-500); /* 40px, per Figma */
+  }
+}
+
+@media (min-width: 48em) and (max-width: 63.99em) {
+  .site-footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: var(--spacing-300) var(--spacing-500); /* 24px 40px, per Figma */
+  }
+
+  .site-footer .container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    align-self: stretch;
+    max-width: none;
+    padding-inline: 0;
+    text-align: left;
+  }
+
+  .footer-brand {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-600); /* 48px, per Figma */
+  }
+
+  .site-footer .logo,
+  .footer-nav ul {
+    margin-bottom: 0;
   }
 }
 
@@ -578,8 +615,10 @@ h3 {
   text-align: center;
 }
 
-.hero-content .btn {
-  margin-top: var(--spacing-400);
+.hero-text {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-400); /* 32px, mobile */
 }
 
 .hero-content .btn-primary {
@@ -603,17 +642,19 @@ h3 {
   text-align: center;
 }
 
+@media (max-width: 63.99em) {
+  .hero-content h1 {
+    /* text-preset-2 metrics on mobile/tablet, per Figma */
+    font-size: 2.5rem; /* 40px */
+    line-height: 105%;
+    letter-spacing: -0.35px;
+  }
+}
+
 @media (max-width: 47.99em) {
   .hero-content {
     text-align: left;
     padding-top: var(--spacing-300); /* 24px */
-  }
-
-  .hero-content h1 {
-    /* text-preset-2 metrics on mobile, per Figma */
-    font-size: 2.5rem; /* 40px */
-    line-height: 105%;
-    letter-spacing: -0.35px;
   }
 
   .hero picture {
@@ -631,54 +672,75 @@ h3 {
   }
 }
 
+@media (min-width: 48em) and (max-width: 63.99em) {
+  .hero {
+    position: relative;
+  }
+
+  .hero picture {
+    margin-inline: var(--spacing-400); /* 32px inset, per Figma */
+    aspect-ratio: 688 / 600;
+    overflow: hidden;
+  }
+
+  .hero picture img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .hero-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+    width: 32.125rem; /* 514px */
+    height: 17.375rem; /* 278px */
+    margin-top: -17.375rem; /* -278px, card overlaps bottom of image */
+    margin-inline: var(--spacing-400) 0;
+    padding: 0;
+    background-color: var(--color-neutral-50);
+    text-align: left;
+  }
+
+  .hero-text {
+    max-width: 28.625rem; /* 458px */
+    gap: var(--spacing-600); /* 48px, per Figma tablet */
+  }
+}
+
 /* === About Me === */
 .about-me .container {
+  display: flex;
+  flex-direction: column;
+  gap: 2.8125rem; /* 45px, mobile */
   padding-block: var(--spacing-700);
-  text-align: center;
+  text-align: left;
 }
 
 .about-divider {
   border: none;
   border-top: 1px solid var(--color-slate-800);
   opacity: 0.15;
-  margin-block: var(--spacing-400);
+}
+
+.about-text {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-300); /* 24px */
 }
 
 .about-me p {
-  margin-top: var(--spacing-300);
   opacity: 0.8;
 }
 
 .about-me .btn {
-  margin-top: var(--spacing-400);
+  align-self: flex-start;
 }
 
 @media (max-width: 47.99em) {
   .about-me .container {
-    display: flex;
-    flex-direction: column;
-    gap: 2.8125rem; /* 45px */
-    text-align: left;
     padding-top: var(--spacing-400); /* 32px, image → text gap */
-  }
-
-  .about-divider {
-    margin-block: 0;
-  }
-
-  .about-text {
-    display: flex;
-    flex-direction: column;
-    gap: var(--spacing-300); /* 24px */
-  }
-
-  .about-me p,
-  .about-me .btn {
-    margin-top: 0;
-  }
-
-  .about-me .btn {
-    align-self: flex-start;
   }
 
   .about-me picture {
@@ -696,6 +758,12 @@ h3 {
   }
 }
 
+@media (min-width: 48em) and (max-width: 63.99em) {
+  .about-me .container {
+    gap: 3.1875rem; /* 51px, per Figma tablet */
+  }
+}
+
 /* === CTA === */
 .cta .container {
   padding-block: var(--spacing-700);
@@ -706,25 +774,61 @@ h3 {
   margin-top: var(--spacing-500); /* 40px, per Figma */
 }
 
-@media (min-width: 64em) {
+.cta-divider {
+  display: none; /* tablet-only, per Figma */
+}
+
+@media (min-width: 48em) and (max-width: 63.99em) {
+  .cta .container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--spacing-400); /* 32px */
+    text-align: left;
+  }
+
+  .cta h2 {
+    max-width: 21.875rem; /* 350px */
+  }
+
+  .cta-divider {
+    display: block;
+    flex-shrink: 0;
+    width: 7.0625rem; /* 113px */
+    border: none;
+    border-top: 1px solid var(--color-slate-800);
+    opacity: 0.15;
+  }
+
+  .cta .btn {
+    flex-shrink: 0;
+    margin-top: 0;
+  }
+}
+
+@media (min-width: 48em) {
   .about-me {
     display: flex;
+    justify-content: space-between;
     align-items: center;
+    gap: 4.3125rem; /* 69px, per Figma */
   }
 
   .about-me picture,
   .about-me img {
-    flex: 1;
+    flex: 281 0 0%; /* 281:339 ratio, per Figma */
     height: 100%;
     object-fit: cover;
   }
 
   .about-me .container {
-    flex: 1;
-    text-align: left;
+    flex: 339 0 0%;
     padding-block: 0;
   }
+}
 
+@media (min-width: 64em) {
   .about-divider {
     display: none;
   }
