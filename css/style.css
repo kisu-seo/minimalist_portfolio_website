@@ -270,6 +270,7 @@ h3 {
   border: none;
   cursor: pointer;
   padding: var(--spacing-100);
+  height: 2.1875rem; /* 35px, fits the taller icon-close so toggling icons doesn't resize the header */
 }
 
 .menu-toggle:focus-visible {
@@ -306,11 +307,16 @@ h3 {
 .mobile-nav ul {
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-300);
+  gap: var(--spacing-400); /* 32px, per Figma */
   text-align: center;
 }
 
 .mobile-nav a {
+  font-family: var(--font-sans);
+  font-size: 0.75rem; /* 12px, text-preset-7 */
+  line-height: 115%;
+  letter-spacing: 2px;
+  text-transform: uppercase;
   color: var(--color-neutral-0);
 }
 
@@ -440,7 +446,7 @@ h3 {
   }
 
   .site-footer .container {
-    align-self: stretch;
+    width: 100%; /* auto margin-inline needs a definite width to stretch against, or it shrinks to content */
     max-width: none;
     padding-inline: 0;
   }
@@ -453,6 +459,7 @@ h3 {
   }
 
   .site-footer .container {
+    width: 100%; /* auto margin-inline needs a definite width to stretch against, or it shrinks to content */
     padding-inline: 0; /* .container's own max-width:1110 + auto margins now center it */
   }
 }
@@ -534,6 +541,10 @@ h3 {
   padding-block: var(--spacing-700);
 }
 
+.project-card-info {
+  margin-top: var(--spacing-400); /* 32px, picture → text gap */
+}
+
 .project-card h2 {
   margin-top: var(--spacing-400);
 }
@@ -546,10 +557,168 @@ h3 {
   margin-top: var(--spacing-400);
 }
 
+.project-card-divider {
+  display: none; /* mobile/tablet-only, per Figma */
+  border: none;
+  border-top: 1px solid var(--color-slate-800);
+  opacity: 0.15;
+}
+
+@media (max-width: 47.99em) {
+  .project-grid {
+    gap: var(--spacing-1000); /* 80px, per Figma mobile */
+  }
+
+  .project-card-divider {
+    display: block;
+  }
+
+  .project-card h2 {
+    margin-top: var(--spacing-300); /* 24px, per Figma */
+    font-size: 2.5rem; /* 40px, text-preset-2 metrics */
+    font-weight: 700;
+    line-height: 105%;
+    letter-spacing: -0.35px;
+  }
+
+  .project-card p {
+    margin-top: var(--spacing-300);
+    font-size: 0.9375rem; /* 15px, text-preset-5 metrics */
+    line-height: 200%;
+    opacity: 0.8;
+  }
+
+  .project-card .btn {
+    margin-top: var(--spacing-300); /* 24px, per Figma */
+  }
+
+  .project-card .btn + .project-card-divider {
+    margin-top: var(--spacing-300); /* 24px */
+  }
+}
+
+@media (min-width: 48em) and (max-width: 63.99em) {
+  .project-grid {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-1000); /* 80px, per Figma tablet */
+  }
+
+  .project-card {
+    display: flex;
+    align-items: center;
+    gap: 4.3125rem; /* 69px, per Figma tablet */
+  }
+
+  .project-card:nth-child(even) {
+    flex-direction: row-reverse; /* alternating image/text sides, per Figma */
+  }
+
+  .project-card picture {
+    width: 21.1875rem; /* 339px */
+    flex-shrink: 0;
+  }
+
+  .project-card picture img {
+    width: 100%;
+    height: 19.625rem; /* 314px */
+    object-fit: cover;
+  }
+
+  .project-card-divider {
+    display: block;
+  }
+
+  .project-card-info {
+    width: 17.5625rem; /* 281px */
+    margin-top: 0;
+  }
+
+  .project-card h2 {
+    margin-top: 2.625rem; /* 42px, per Figma tablet */
+    font-size: 2.5rem; /* 40px, text-preset-2 metrics */
+    font-weight: 700;
+    line-height: 105%;
+    letter-spacing: -0.35px;
+  }
+
+  .project-card p {
+    margin-top: var(--spacing-400); /* 32px, per Figma tablet */
+    font-size: 0.9375rem; /* 15px, text-preset-5 metrics */
+    line-height: 200%;
+    opacity: 0.8;
+  }
+
+  .project-card .btn {
+    margin-top: var(--spacing-400); /* 32px, per Figma tablet */
+  }
+
+  .project-card .btn + .project-card-divider {
+    margin-top: 2.625rem; /* 42px, per Figma tablet */
+  }
+}
+
 @media (min-width: 64em) {
   .project-grid {
-    grid-template-columns: repeat(2, 1fr);
-    column-gap: var(--spacing-400);
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-1000); /* 80px, per Figma desktop */
+    margin-inline: calc(-1 * var(--spacing-400)); /* cancel parent .container padding so cards can flush-align to the 1110px container edge */
+  }
+
+  .project-card {
+    display: flex;
+    align-items: center;
+    gap: 7.8125rem; /* 125px, per Figma desktop */
+    width: 63.4375rem; /* 1015px */
+    margin-right: auto;
+  }
+
+  .project-card:nth-child(even) {
+    flex-direction: row-reverse; /* alternating image/text sides, per Figma */
+    margin-right: 0;
+    margin-left: auto;
+  }
+
+  .project-card picture {
+    width: 33.75rem; /* 540px */
+    flex-shrink: 0;
+  }
+
+  .project-card picture img {
+    width: 100%;
+    height: 31.25rem; /* 500px */
+    object-fit: cover;
+  }
+
+  .project-card-divider {
+    display: block;
+  }
+
+  .project-card-info {
+    width: 21.875rem; /* 350px */
+    margin-top: 0;
+  }
+
+  .project-card h2 {
+    margin-top: 6.25rem; /* 100px, per Figma desktop */
+    font-size: 2.5rem; /* 40px, text-preset-2 metrics */
+    font-weight: 700;
+    line-height: 105%;
+    letter-spacing: -0.35px;
+  }
+
+  .project-card p {
+    margin-top: 1.875rem; /* 30px, per Figma desktop */
+    opacity: 0.8;
+  }
+
+  .project-card .btn {
+    margin-top: 1.875rem; /* 30px, per Figma desktop */
+  }
+
+  .project-card .btn + .project-card-divider {
+    margin-top: 6.25rem; /* 100px, per Figma desktop */
   }
 }
 
@@ -620,6 +789,25 @@ h3 {
 .project-nav .project-nav-next {
   flex-direction: row-reverse;
   text-align: right;
+}
+
+.project-nav-divider {
+  display: none; /* mobile-only, per Figma */
+}
+
+@media (max-width: 47.99em) {
+  .project-nav {
+    margin-inline: -0.5rem; /* per Figma: 24px inset vs the standard 32px container inset */
+    padding-top: 1.3125rem; /* 21px, per Figma: divider-to-content gap in the 146px-tall nav row */
+  }
+
+  .project-nav-divider {
+    display: block;
+    width: 1px;
+    height: 9.125rem; /* 146px */
+    background-color: var(--color-slate-800);
+    opacity: 0.15;
+  }
 }
 
 @media (min-width: 48em) {
@@ -931,4 +1119,51 @@ h3 {
   .about-text-body {
     gap: var(--spacing-375); /* 30px, per Figma desktop */
   }
+}
+
+/* === Detail Page Overrides (manage/bookmark/insure/fylo, mobile) === */
+main > picture img {
+  margin-inline: auto; /* per Figma: hero image is centered, not flush-left */
+}
+
+.project-intro p.text-preset-4,
+.project-background p.text-preset-4 {
+  font-size: 0.9375rem; /* 15px, per Figma text-preset-5 */
+  line-height: 200%;
+  opacity: 0.8;
+}
+
+.project-tags p {
+  font-size: 0.8125rem; /* 13px, per Figma text-preset-6(bold) */
+  font-weight: 700;
+  line-height: 230%;
+  letter-spacing: normal;
+  text-transform: none;
+}
+
+.static-previews ul {
+  gap: var(--spacing-400); /* 32px, per Figma */
+}
+
+.project-nav .text-preset-7 {
+  font-size: 1rem; /* 16px, per Figma text-preset-4 */
+  line-height: 187.5%;
+  letter-spacing: normal;
+  text-transform: none;
+  opacity: 0.5;
+}
+
+body.page-detail .cta h2.text-preset-3 {
+  font-size: 2.5rem; /* 40px, per Figma text-preset-2 */
+  font-weight: 700;
+  line-height: 105%;
+  letter-spacing: -0.35px;
+}
+
+/* === Portfolio Index Page Overrides === */
+body.page-portfolio .cta h2.text-preset-3 {
+  font-size: 2.5rem; /* 40px, per Figma text-preset-2 */
+  font-weight: 700;
+  line-height: 105%;
+  letter-spacing: -0.35px;
 }
