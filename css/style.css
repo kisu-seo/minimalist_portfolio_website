@@ -80,12 +80,23 @@ ul {
 }
 
 /* === Base === */
+html {
+  background-color: var(--color-neutral-50); /* shows beside the centered body canvas on ultra-wide screens */
+}
+
 body {
   font-family: var(--font-sans);
   font-size: 1rem;
   line-height: 187.5%;
   color: var(--color-slate-800);
   background-color: var(--color-neutral-50);
+}
+
+@media (min-width: 48em) {
+  body {
+    max-width: 90rem; /* 1440px, per Figma desktop frame */
+    margin-inline: auto;
+  }
 }
 
 h1,
@@ -402,7 +413,9 @@ h3 {
 .social-list {
   display: flex;
   justify-content: center;
+  align-items: center;
   gap: var(--spacing-300);
+  line-height: 0; /* removes the inherited line-height's baseline gap that pushed icons upward */
 }
 
 .site-footer .social-list {
@@ -998,6 +1011,8 @@ h3 {
 
 /* === Hero === */
 .hero-content {
+  position: relative; /* wins the paint order over .hero picture when the card overlaps the image (tablet/desktop) */
+  z-index: 1;
   padding-block: var(--spacing-700);
   text-align: center;
 }

@@ -8,6 +8,77 @@
   <link rel="stylesheet" href="./css/style.css">
 
   <title>Frontend Mentor | Minimalist Portfolio</title>
+  <style>
+    @media (min-width: 768px) {
+      .site-header {
+        padding-top: 64px;
+        padding-left: 40px;
+        padding-right: 40px;
+        padding-bottom: 47px;
+      }
+    }
+    @media (min-width: 64em) {
+      .site-header {
+        padding-bottom: 54px !important;
+      }
+      #about-me {
+        margin-top: 150px !important;
+        width: 1015px !important;
+        height: 600px !important;
+      }
+      .about-me .container {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+      }
+      .cta .container {
+        padding-top: 150px !important;
+        padding-bottom: 150px !important;
+      }
+    }
+    @media (min-width: 48em) {
+      .hero .hero-content {
+        background-color: var(--color-neutral-50) !important;
+      }
+    }
+    @media (max-width: 767.98px) {
+      .hero-content {
+        padding-bottom: 96px;
+      }
+    }
+    @media (min-width: 48em) and (max-width: 63.99em) {
+      .hero picture {
+        margin-left: 40px;
+        margin-right: 40px;
+        display: block;
+      }
+      .hero .hero-content {
+        margin-left: 40px !important;
+        padding-bottom: 0px !important;
+      }
+      #about-me {
+        margin-top: 96px !important;
+        margin-left: 40px !important;
+        margin-right: 40px !important;
+      }
+      .about-me picture,
+      .about-me picture img {
+        width: 281px !important;
+        height: 600px !important;
+        object-fit: cover;
+      }
+      .about-text {
+        width: 339px !important;
+        height: 496px !important;
+      }
+      .about-me .container {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+      }
+      .cta .container {
+        padding: 96px 40px !important;
+      }
+    }
+  </style>
 </head>
 <body>
 
@@ -50,7 +121,7 @@
         <img src="./images/homepage/mobile/image-homepage-hero.jpg" srcset="./images/homepage/mobile/image-homepage-hero.jpg 1x, ./images/homepage/mobile/image-homepage-hero@2x.jpg 2x" alt="Screenshot of the Manage product landing page" loading="eager">
       </picture>
 
-      <div class="container hero-content" style="padding-bottom: 96px;">
+      <div class="container hero-content">
         <div class="hero-text">
           <h1 class="text-preset-1">Hey, I’m Alex Spencer and I love building beautiful websites</h1>
           <a href="#about-me" class="btn btn-primary">
