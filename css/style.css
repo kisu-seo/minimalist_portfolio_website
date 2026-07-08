@@ -291,13 +291,22 @@ h3 {
 }
 
 .mobile-nav {
+  /* Menu */
+  /* 오토레이아웃 */
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 0px;
+
   position: absolute;
-  top: 100%;
-  right: var(--spacing-300);
+  width: 223px;
+  height: 186px;
+  right: 32px;
+  top: 88px;
+
+  background: #33323D;
   z-index: 10;
-  background-color: var(--color-slate-800);
-  padding: var(--spacing-400);
-  min-width: 12.5rem;
 }
 
 .mobile-nav[hidden] {
@@ -307,8 +316,14 @@ h3 {
 .mobile-nav ul {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   gap: var(--spacing-400); /* 32px, per Figma */
   text-align: center;
+  width: 95px;
+  height: 106px;
+  padding: 0;
+  margin: 0;
 }
 
 .mobile-nav a {
@@ -318,6 +333,7 @@ h3 {
   letter-spacing: 2px;
   text-transform: uppercase;
   color: var(--color-neutral-0);
+  white-space: nowrap;
 }
 
 .mobile-nav a:hover,
@@ -1342,4 +1358,96 @@ body.page-portfolio .cta h2.text-preset-3 {
   font-weight: 700;
   line-height: 105%;
   letter-spacing: -0.35px;
+}
+
+/* === Contact Page Overrides === */
+.get-in-touch h1.text-preset-3,
+.contact-form-section h2.text-preset-3 {
+  font-size: 2.5rem; /* 40px, per Figma text-preset-2 (all breakpoints) */
+  font-weight: 700;
+  line-height: 105%;
+  letter-spacing: -0.35px;
+}
+
+.form-field label {
+  opacity: 0.8; /* per Figma, all breakpoints */
+}
+
+.form-field input,
+.form-field textarea {
+  font-size: 0.8125rem; /* 13px, per Figma text-preset-6(regular), all breakpoints */
+  line-height: 230%;
+}
+
+.form-field input::placeholder,
+.form-field textarea::placeholder {
+  opacity: 0.4; /* per Figma, all breakpoints */
+}
+
+.form-field input {
+  height: 3rem; /* 48px, per Figma, all breakpoints */
+  padding-block: var(--spacing-100); /* 8px, keeps 13px text vertically centered within 48px */
+}
+
+.form-field textarea {
+  height: 6rem; /* 96px, per Figma message input height, all breakpoints */
+}
+
+@media (max-width: 63.99em) {
+  .get-in-touch p.text-preset-4 {
+    font-size: 0.9375rem; /* 15px, per Figma text-preset-5 (mobile/tablet) */
+    line-height: 200%;
+    opacity: 0.8;
+  }
+
+  .social-list-dark {
+    margin-top: var(--spacing-300); /* 24px, per Figma */
+  }
+}
+
+@media (min-width: 64em) {
+  .get-in-touch p.text-preset-4 {
+    opacity: 0.8; /* per Figma desktop; font stays at text-preset-4 (16px/187.5%) */
+  }
+
+  .get-in-touch {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 7.8125rem; /* 125px, per Figma */
+  }
+
+  .get-in-touch h1.text-preset-3 {
+    width: 21.875rem; /* 350px, per Figma */
+    flex-shrink: 0;
+  }
+
+  .get-in-touch-text {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-300); /* 24px, per Figma */
+    width: 39.6875rem; /* 635px, per Figma */
+  }
+
+  .get-in-touch-text p.text-preset-4,
+  .get-in-touch-text .social-list-dark {
+    margin-top: 0;
+  }
+
+  .contact-form-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 7.8125rem; /* 125px, per Figma */
+  }
+
+  .contact-form-section h2.text-preset-3 {
+    width: 21.875rem; /* 350px, per Figma */
+    flex-shrink: 0;
+  }
+
+  .contact-form {
+    width: 39.6875rem; /* 635px, per Figma */
+    margin-top: 0;
+  }
 }
