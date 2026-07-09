@@ -798,6 +798,7 @@ h3 {
 
 .project-nav {
   display: flex;
+  align-items: center;
   justify-content: space-between;
   border-top: 1px solid var(--color-slate-300);
   padding-block: var(--spacing-700);
@@ -805,7 +806,8 @@ h3 {
 
 .project-nav a {
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  align-items: flex-start;
   gap: var(--spacing-200);
   transition: color 0.2s ease;
 }
@@ -816,7 +818,7 @@ h3 {
 }
 
 .project-nav .project-nav-next {
-  flex-direction: row-reverse;
+  align-items: flex-end;
   text-align: right;
 }
 
@@ -1365,6 +1367,60 @@ body.page-detail .cta h2.text-preset-3 {
   font-weight: 700;
   line-height: 105%;
   letter-spacing: -0.35px;
+}
+
+body.page-detail .site-header {
+  padding-bottom: var(--spacing-500); /* 40px, per Figma: header/hero gap on detail pages, all breakpoints */
+}
+
+body.page-detail main > .container {
+  padding-top: var(--spacing-500); /* 40px, per Figma: gap below hero image, all breakpoints */
+}
+
+.project-intro {
+  border-top: 1px solid var(--color-slate-300);
+  padding-block: var(--spacing-300); /* 24px, per Figma, all breakpoints */
+}
+
+.project-background {
+  padding-top: 3.125rem; /* 50px, per Figma, all breakpoints */
+  padding-bottom: var(--spacing-500); /* 40px, per Figma, all breakpoints */
+}
+
+.project-background .text-preset-4 {
+  margin-top: var(--spacing-375); /* 30px, per Figma, all breakpoints */
+}
+
+.static-previews {
+  padding-top: 0;
+  padding-bottom: 3.875rem; /* 62px, per Figma, all breakpoints */
+}
+
+.static-previews ul {
+  margin-top: var(--spacing-500); /* 40px, per Figma, all breakpoints */
+}
+
+.project-nav {
+  padding: 0;
+  border-bottom: 1px solid var(--color-slate-300);
+}
+
+body.page-detail .cta .container {
+  padding-top: 66px !important;
+  padding-bottom: 80px !important;
+}
+
+body.page-detail .project-tags p {
+  color: var(--color-teal-400) !important;
+}
+
+body.page-detail .project-nav-prev,
+body.page-detail .project-nav-next {
+  flex: 1 1 0% !important;
+}
+
+body.page-detail .project-nav-divider {
+  flex: 0 0 auto !important;
 }
 
 /* === Portfolio Index Page Overrides === */
