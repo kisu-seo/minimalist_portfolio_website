@@ -18,7 +18,7 @@
   - 소셜 아이콘 리스트 높이(24px) 및 수직 정렬(`align-items: center`) 세부 정렬 문제 보완 (`index.html` 내부 style 및 `css/style.css`)
 
 ## 진행 중 / 현재 범위
-- **현재 작업 범위: `portfolio.html`만** (2026-07-09 사용자 지시, 별도 안내 전까지 유지). 이 기간 중 요청은 `portfolio.html` 및 그 마크업에 한정된 공유 파일(`css/style.css`, `js/main.js`) 수정만 진행.
+- **현재 작업 범위: `manage.html`, `bookmark.html`, `insure.html`, `fylo.html`만** (2026-07-09 사용자 지시, 별도 안내 전까지 유지). 이 기간 중 요청은 이 4개 상세 페이지 및 그 마크업에 한정된 공유 파일(`css/style.css`, `js/main.js`) 수정만 진행.
 
 ## 다음 작업 후보 (미정 — 사용자 확인 필요)
 - [ ] contact.html 세부 QA/개선 (범위 재지정 전까지 다른 페이지는 보류)
