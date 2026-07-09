@@ -848,6 +848,25 @@ h3 {
 }
 
 @media (min-width: 48em) and (max-width: 63.99em) {
+  body.page-detail .site-header {
+    padding-top: 64px !important;
+    padding-bottom: 94px !important;
+  }
+
+  body.page-detail .site-header .container {
+    width: 689px !important;
+    max-width: none !important;
+    padding: 0 !important;
+  }
+
+  body.page-detail .nav-desktop a {
+    font-family: var(--font-sans) !important;
+    font-size: 0.75rem !important;
+    line-height: 115% !important;
+    letter-spacing: 2px !important;
+    text-transform: uppercase !important;
+  }
+
   body.page-detail main > .container {
     padding-inline: var(--spacing-500); /* 40px, per Figma tablet (vs standard 32px) */
   }
@@ -862,6 +881,8 @@ h3 {
       "tags desc"
       "button desc";
     align-items: start;
+    padding-top: 33px !important;
+    padding-bottom: 33px !important;
   }
 
   .project-intro h1 {
@@ -877,6 +898,8 @@ h3 {
   .project-intro .btn {
     grid-area: button;
     margin-top: 0;
+    width: 174px !important;
+    white-space: nowrap !important;
   }
 
   .project-intro p.text-preset-4 {
@@ -888,11 +911,17 @@ h3 {
   }
 
   .project-background {
+    padding-top: 42px !important;
     padding-bottom: 0;
+  }
+
+  .project-background .text-preset-4 {
+    margin-top: 24px !important;
   }
 
   .static-previews {
     padding-top: var(--spacing-500); /* 40px, per Figma tablet: combined with .project-background's 0 bottom padding */
+    padding-bottom: 85px !important;
   }
 
   .static-previews ul {
@@ -905,6 +934,31 @@ h3 {
     padding-bottom: var(--spacing-1000); /* 80px, per Figma tablet */
   }
 
+  .project-nav a {
+    flex-direction: row !important;
+    align-items: center !important;
+    gap: 32px !important;
+  }
+
+  body.page-detail .project-nav .project-nav-prev {
+    flex: 1 1 0% !important;
+    flex-direction: row !important;
+    justify-content: flex-start !important;
+    text-align: left !important;
+  }
+
+  body.page-detail .project-nav .project-nav-next {
+    flex: 1 1 0% !important;
+    flex-direction: row-reverse !important;
+    justify-content: flex-start !important;
+    text-align: right !important;
+  }
+
+  .project-nav a svg {
+    align-self: center !important;
+    margin-top: 0 !important;
+  }
+
   .project-nav-divider {
     display: block;
     width: 1px;
@@ -912,11 +966,41 @@ h3 {
     background-color: var(--color-slate-800);
     opacity: 0.15;
   }
+
+  body.page-detail .cta .container {
+    padding-top: 80px !important;
+    padding-bottom: 96px !important;
+    width: 689px !important;
+    max-width: none !important;
+  }
 }
 
 @media (min-width: 64em) {
+  body.page-detail .site-header {
+    padding-top: 64px !important;
+    padding-bottom: 94px !important;
+  }
+
+  body.page-detail .site-header .container {
+    padding: 0 !important;
+  }
+
+  body.page-detail .nav-desktop a {
+    font-family: var(--font-sans) !important;
+    font-size: 0.75rem !important;
+    line-height: 115% !important;
+    letter-spacing: 2px !important;
+    text-transform: uppercase !important;
+  }
+
+  body.page-detail main,
+  body.page-detail main > picture {
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
   body.page-detail main > .container {
-    padding-inline: 0; /* per Figma: content spans the full 1110px container, no extra inset */
+    padding: 0 !important;
     margin-top: 7.1875rem; /* 115px, per Figma: gap between hero image and content */
     display: grid;
     grid-template-columns: 21.875rem 39.6875rem; /* 350px / 635px */
@@ -931,8 +1015,9 @@ h3 {
 
   .project-intro {
     grid-area: intro;
-    padding-block: 0;
     position: relative;
+    border-top: 0 !important;
+    padding: 0 !important;
   }
 
   .project-intro::before,
@@ -983,16 +1068,18 @@ h3 {
   .project-background {
     grid-area: background;
     padding-block: 0;
+    padding-top: 0 !important;
   }
 
   .static-previews {
     grid-area: previews;
-    padding-top: 0;
+    padding: 0 !important;
   }
 
   .static-previews ul {
     grid-template-columns: 1fr; /* stacked, per Figma desktop */
     gap: 1.875rem; /* 30px, per Figma desktop */
+    margin-top: 30px !important;
   }
 
   .project-nav {
@@ -1000,6 +1087,31 @@ h3 {
     margin-top: 3.875rem; /* 62px, per Figma desktop */
     padding-top: 1.8125rem; /* 29px, same row-centering math as tablet */
     padding-bottom: 7.1875rem; /* 115px, per Figma desktop */
+  }
+
+  .project-nav a {
+    flex-direction: row !important;
+    align-items: center !important;
+    gap: 32px !important;
+  }
+
+  body.page-detail .project-nav .project-nav-prev {
+    flex: 1 1 0% !important;
+    flex-direction: row !important;
+    justify-content: flex-start !important;
+    text-align: left !important;
+  }
+
+  body.page-detail .project-nav .project-nav-next {
+    flex: 1 1 0% !important;
+    flex-direction: row-reverse !important;
+    justify-content: flex-start !important;
+    text-align: right !important;
+  }
+
+  .project-nav a svg {
+    align-self: center !important;
+    margin-top: 0 !important;
   }
 
   .project-nav-divider {
@@ -1408,6 +1520,13 @@ body.page-detail main > .container {
 body.page-detail .cta .container {
   padding-top: 66px !important;
   padding-bottom: 80px !important;
+}
+
+@media (min-width: 64em) {
+  body.page-detail .cta .container {
+    padding-top: 115px !important;
+    padding-bottom: 150px !important;
+  }
 }
 
 body.page-detail .project-tags p {
