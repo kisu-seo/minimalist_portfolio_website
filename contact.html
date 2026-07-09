@@ -43,6 +43,17 @@
       width: 165px !important;
       white-space: nowrap !important;
     }
+    .form-field.has-error input,
+    .form-field.has-error textarea {
+      border: 1px solid var(--color-red-500) !important;
+    }
+    .form-error {
+      font-family: var(--font-sans) !important;
+      font-weight: 700 !important;
+      font-style: italic !important;
+      font-size: 0.625rem !important;
+      line-height: 120% !important;
+    }
     @media (min-width: 48em) {
       .site-header {
         padding-top: 64px !important;
@@ -82,6 +93,14 @@
         margin-bottom: 0 !important;
       }
     }
+    @media (max-width: 63.99em) {
+      .form-field input:focus,
+      .form-field textarea:focus {
+        background-color: var(--color-neutral-0) !important;
+        border: 1px solid var(--color-teal-400) !important;
+        outline: none !important;
+      }
+    }
     @media (min-width: 64em) {
       .container {
         padding: 0 !important;
@@ -117,6 +136,12 @@
       .contact-form .form-field:last-of-type {
         margin-bottom: 0 !important;
       }
+      .form-field input:focus,
+      .form-field textarea:focus {
+        background-color: var(--color-neutral-0) !important;
+        border: 1px solid var(--color-teal-400) !important;
+        outline: none !important;
+      }
     }
   </style>
 </head>
@@ -133,7 +158,7 @@
         <ul>
           <li><a href="index.html">Home</a></li>
           <li><a href="portfolio.html">Portfolio</a></li>
-          <li><a href="contact.html">Contact Me</a></li>
+          <li><a href="contact.html" aria-current="page">Contact Me</a></li>
         </ul>
       </nav>
 
@@ -147,7 +172,7 @@
       <ul>
         <li><a href="index.html">Home</a></li>
         <li><a href="portfolio.html">Portfolio</a></li>
-        <li><a href="contact.html">Contact Me</a></li>
+        <li><a href="contact.html" aria-current="page">Contact Me</a></li>
       </ul>
     </nav>
   </header>
