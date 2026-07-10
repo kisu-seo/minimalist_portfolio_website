@@ -307,8 +307,7 @@ h3 {
 }
 
 .mobile-nav {
-  /* Menu */
-  /* 오토레이아웃 */
+  /* fixed-size dropdown panel, absolutely positioned under the header, per Figma spec */
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -1435,7 +1434,7 @@ h3 {
   }
 }
 
-/* === Detail Page Overrides (manage/bookmark/insure/fylo, mobile) === */
+/* === Detail Page Overrides (manage/bookmark/insure/fylo, all breakpoints unless noted) === */
 main > picture img {
   margin-inline: auto; /* per Figma: hero image is centered, not flush-left */
 }
@@ -1555,6 +1554,67 @@ body.page-portfolio .cta h2.text-preset-3 {
   letter-spacing: -0.35px;
 }
 
+:where(body.page-portfolio) .site-header {
+  padding-bottom: 40px !important; /* per Figma: portfolio page's header/grid gap, mobile */
+}
+
+:where(body.page-portfolio) .project-grid {
+  padding-top: 0 !important; /* header already provides the gap above */
+  padding-bottom: 0 !important; /* gap to .cta is set via margin-bottom below */
+  margin-bottom: 96px !important; /* per Figma mobile */
+}
+
+:where(body.page-portfolio) .container {
+  padding-top: 0 !important; /* header already provides the gap above, all breakpoints */
+}
+
+:where(body.page-portfolio) .cta .container {
+  padding-bottom: 80px !important; /* per Figma mobile */
+}
+
+@media (min-width: 48em) and (max-width: 63.99em) {
+  :where(body.page-portfolio) .site-header {
+    padding-top: 64px !important; /* per Figma tablet */
+    padding-bottom: 94px !important; /* per Figma tablet */
+  }
+
+  :where(body.page-portfolio) .site-header .container {
+    width: 689px !important; /* per Figma tablet */
+    max-width: none !important;
+    padding: 0 !important;
+  }
+
+  :where(body.page-portfolio) main > .container {
+    width: 689px !important; /* per Figma tablet */
+    max-width: none !important;
+    padding: 0 !important;
+  }
+
+  :where(body.page-portfolio) .cta {
+    width: 689px !important; /* per Figma tablet */
+    margin-inline: auto !important;
+  }
+}
+
+@media (min-width: 64em) {
+  :where(body.page-portfolio) .site-header {
+    padding-top: 64px !important; /* per Figma desktop */
+    padding-bottom: 94px !important; /* per Figma desktop */
+  }
+
+  :where(body.page-portfolio) .site-header .container {
+    padding: 0 !important;
+  }
+
+  :where(body.page-portfolio) .project-grid {
+    margin-bottom: 150px !important; /* per Figma desktop */
+  }
+
+  :where(body.page-portfolio) .cta .container {
+    padding-bottom: 150px !important; /* per Figma desktop */
+  }
+}
+
 /* === Contact Page Overrides === */
 .get-in-touch h1.text-preset-3,
 .contact-form-section h2.text-preset-3 {
@@ -1644,5 +1704,225 @@ body.page-portfolio .cta h2.text-preset-3 {
   .contact-form {
     width: 39.6875rem; /* 635px, per Figma */
     margin-top: 0;
+  }
+}
+
+:where(body.page-contact) .site-header {
+  padding-bottom: 40px !important; /* per Figma: contact page's header/content gap, mobile */
+}
+
+:where(body.page-contact) .get-in-touch {
+  border-top: 1px solid var(--color-slate-300) !important; /* per Figma, all breakpoints */
+  padding-top: 33px !important; /* per Figma mobile */
+  padding-bottom: 33px !important; /* per Figma mobile */
+}
+
+:where(body.page-contact) .get-in-touch .social-list {
+  gap: 16px !important; /* per Figma, all breakpoints */
+}
+
+:where(body.page-contact) .contact-form-section {
+  padding-top: 24px !important; /* per Figma mobile */
+  padding-bottom: 74px !important; /* per Figma mobile */
+}
+
+:where(body.page-contact) .form-field input,
+:where(body.page-contact) .form-field textarea {
+  border: 0 !important; /* per Figma: borderless field, replaces the shared 1px border */
+  background-color: rgba(51, 50, 61, 0.1) !important; /* per Figma: slate 800 @ 10% opacity fill */
+}
+
+:where(body.page-contact) .contact-form {
+  gap: 0 !important; /* per-field spacing is handled via margin-bottom below instead */
+}
+
+:where(body.page-contact) .contact-form .form-field {
+  margin-bottom: 20px !important; /* per Figma mobile */
+}
+
+:where(body.page-contact) .contact-form .form-field:last-of-type {
+  margin-bottom: 0 !important; /* avoid trailing gap below the last field */
+}
+
+:where(body.page-contact) .contact-form .btn {
+  margin-top: 32px !important; /* per Figma, all breakpoints */
+  width: 165px !important; /* per Figma, all breakpoints */
+  white-space: nowrap !important; /* keeps the button label from wrapping at this fixed width */
+}
+
+:where(body.page-contact) .form-field.has-error input,
+:where(body.page-contact) .form-field.has-error textarea {
+  border: 1px solid var(--color-red-500) !important; /* per Figma: validation error state, all breakpoints */
+}
+
+:where(body.page-contact) .form-error {
+  font-family: var(--font-sans) !important; /* text-preset-8 metrics */
+  font-weight: 700 !important;
+  font-style: italic !important;
+  font-size: 0.625rem !important; /* 10px */
+  line-height: 120% !important;
+}
+
+:where(body.page-contact) .form-field input:focus,
+:where(body.page-contact) .form-field textarea:focus {
+  background-color: var(--color-neutral-0) !important; /* per Figma: focus state, all breakpoints */
+  border: 1px solid var(--color-teal-400) !important;
+  outline: none !important;
+}
+
+@media (min-width: 48em) {
+  :where(body.page-contact) .site-header {
+    padding-top: 64px !important; /* per Figma tablet+desktop */
+    padding-bottom: 94px !important; /* per Figma tablet+desktop */
+  }
+}
+
+@media (min-width: 48em) and (max-width: 63.99em) {
+  :where(body.page-contact) .site-header .container {
+    width: 689px !important; /* per Figma tablet */
+    max-width: none !important;
+  }
+
+  :where(body.page-contact) .get-in-touch {
+    padding-top: 32px !important; /* per Figma tablet */
+    padding-bottom: 32px !important; /* per Figma tablet */
+    width: 690px !important; /* per Figma tablet */
+    max-width: none !important;
+    margin-inline: auto !important;
+  }
+
+  :where(body.page-contact) .contact-form-section {
+    padding-top: 32px !important; /* per Figma tablet */
+    padding-bottom: 90px !important; /* per Figma tablet */
+    width: 690px !important; /* per Figma tablet */
+    max-width: none !important;
+    margin-inline: auto !important;
+  }
+
+  :where(body.page-contact) .contact-form .form-field {
+    margin-bottom: 24px !important; /* per Figma tablet */
+  }
+
+  :where(body.page-contact) .contact-form .form-field:last-of-type {
+    margin-bottom: 0 !important;
+  }
+}
+
+@media (min-width: 64em) {
+  :where(body.page-contact) .container {
+    padding: 0 !important; /* .get-in-touch/.contact-form-section set their own width+margin, so the wrapping container needs no side padding */
+  }
+
+  :where(body.page-contact) .site-header .container {
+    padding: 0 !important;
+  }
+
+  :where(body.page-contact) .get-in-touch {
+    padding-top: 48px !important; /* per Figma desktop */
+    padding-bottom: 48px !important; /* per Figma desktop */
+    width: 1110px !important; /* per Figma desktop */
+    max-width: none !important;
+    margin-inline: auto !important;
+    border-bottom: 1px solid var(--color-slate-300) !important; /* per Figma desktop */
+  }
+
+  :where(body.page-contact) .contact-form-section {
+    padding-top: 48px !important; /* per Figma desktop */
+    padding-bottom: 102px !important; /* per Figma desktop */
+    width: 1110px !important; /* per Figma desktop */
+    max-width: none !important;
+    margin-inline: auto !important;
+  }
+
+  :where(body.page-contact) .contact-form .form-field {
+    margin-bottom: 24px !important; /* per Figma desktop */
+  }
+
+  :where(body.page-contact) .contact-form .form-field:last-of-type {
+    margin-bottom: 0 !important;
+  }
+}
+
+/* === Home Page Overrides === */
+@media (min-width: 768px) {
+  :where(body.page-home) .site-header {
+    padding-top: 64px; /* per Figma tablet+desktop */
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-bottom: 47px; /* overridden to 54px at desktop below */
+  }
+}
+
+@media (min-width: 64em) {
+  :where(body.page-home) .site-header {
+    padding-bottom: 54px !important; /* per Figma desktop */
+  }
+
+  :where(body.page-home) #about-me {
+    margin-top: 150px !important; /* per Figma desktop */
+    width: 1015px !important; /* per Figma desktop */
+    height: 600px !important; /* per Figma desktop */
+  }
+
+  :where(body.page-home) .about-me .container {
+    padding-left: 0 !important; /* image/text flush to the shared 1015px width, per Figma desktop */
+    padding-right: 0 !important;
+  }
+
+  :where(body.page-home) .cta .container {
+    padding-top: 150px !important; /* per Figma desktop */
+    padding-bottom: 150px !important; /* per Figma desktop */
+  }
+}
+
+@media (min-width: 48em) {
+  :where(body.page-home) .hero .hero-content {
+    background-color: var(--color-neutral-50) !important; /* per Figma: opaque card so it reads over the hero image at tablet/desktop */
+  }
+}
+
+@media (max-width: 767.98px) {
+  :where(body.page-home) .hero-content {
+    padding-bottom: 96px; /* per Figma mobile */
+  }
+}
+
+@media (min-width: 48em) and (max-width: 63.99em) {
+  :where(body.page-home) .hero picture {
+    margin-left: 40px; /* per Figma tablet */
+    margin-right: 40px;
+    display: block;
+  }
+
+  :where(body.page-home) .hero .hero-content {
+    margin-left: 40px !important; /* per Figma tablet */
+    padding-bottom: 0px !important;
+  }
+
+  :where(body.page-home) #about-me {
+    margin-top: 96px !important; /* per Figma tablet */
+    margin-left: 40px !important;
+    margin-right: 40px !important;
+  }
+
+  :where(body.page-home) .about-me picture,
+  :where(body.page-home) .about-me picture img {
+    width: 281px !important; /* per Figma tablet */
+    height: 600px !important; /* per Figma tablet */
+    object-fit: cover;
+  }
+
+  :where(body.page-home) .about-text {
+    width: 339px !important; /* per Figma tablet */
+    height: 496px !important; /* per Figma tablet */
+  }
+
+  :where(body.page-home) .about-me .container {
+    padding-left: 0 !important; /* image/text flush to the shared width, per Figma tablet */
+    padding-right: 0 !important;
+  }
+
+  :where(body.page-home) .cta .container {
+    padding: 96px 40px !important; /* per Figma tablet */
   }
 }
